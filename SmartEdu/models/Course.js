@@ -14,7 +14,6 @@ const CourseSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    unique: true,
     default: Date.now,
   },
 });
