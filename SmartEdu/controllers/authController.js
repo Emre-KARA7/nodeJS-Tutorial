@@ -22,7 +22,9 @@ exports.loginUser = async (req, res) => {
     let user = await User.findOne({ email });
     let same = await bcrypt.compare(password, user.password);
     if (same) {
-      res.status(200).send('You are logged in');
+      //user session
+      req.session.userID = user._id;
+      res.status(200).redirect('/');
     } else {
       res.send('validation failed');
     }
